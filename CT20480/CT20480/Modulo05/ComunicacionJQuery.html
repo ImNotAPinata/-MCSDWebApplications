@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function CargarArchivo() {
+            $.ajax({
+                url: 'texto.txt',
+                type: 'GET',
+                timeout: 12000,
+                dataType: 'text'
+            }).done(function (archivoTexto) {
+                $('#contenedor').text(archivoTexto);
+            }).fail(function () {
+                alert('Error de Comunicacion!');
+            })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p id="resultado"></p>
+    </div>
+    <div id="contenedor"></div>
+    <div>
+        <input type="button" value="Cargar Archivo" onclick="CargarArchivo()" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+    <form action="/" method="post">
+        <fieldset>
+            <legend>Ficha de Clientes</legend>
+    <table>
+        <tr>
+            <td>
+                <strong>RUC</strong>
+            </td>
+            <td></td>
+            <td>
+                <input type="text" id="txtRUC" required="required" maxlength="11" placeholder="IngreseRUC" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Giro Comercial</strong>
+            </td>
+            <td></td>
+            <td>
+                <select id="giroComercial">
+                    <optgroup label="Depositos">
+                        <option value="01">Construccion</option>
+                        <option value="02">Limpieza</option>
+                        <option value="03">Maquinarias</option>
+                    </optgroup>
+                    <optgroup label="Retail">
+                        <option value="04">Ropa</option>
+                        <option value="05">Electronicos</option>
+                        <option value="06">Otros</option>
+                    </optgroup>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>No Sucursales</strong>
+            </td>
+            <td></td>
+            <td>
+                <input id="txtSucursales" list="listaSucursales" />
+                <datalist id="listaSucursales" >
+                    <option value="1-5"></option>
+                    <option value="6-10"></option>
+                    <option value="11-15"></option>
+                    <option value="16+"></option>
+                </datalist>
+            </td>
+        </tr>
+    </table>
+                </fieldset>
+    </form>
+</body>
+</html>

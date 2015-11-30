@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+</head>
+<body>
+    <script type="text/javascript">
+        // Creando el WebWorker y asignando el proceso
+        var worker = new Worker("Worker.js");
+
+        // Enviando mensaje
+        worker.postMessage(0);
+
+        // Recibiendo mensajes del hilo secundario
+        worker.onmessage = function (resultado) {
+            alert(resultado.data);
+        }
+
+    </script>
+</body>
+</html>

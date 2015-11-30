@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+<script>
+    var employee1 = {
+        name: "Carlos Vela",
+        age: 35,
+        salary: 5500
+    };
+
+    var employee2 = {
+        name: "Jerry Sanchez",
+        age: 22,
+        salary: 4500,
+        BendicionDelRuso: function (aumento) {
+            this.salary += aumento;
+            return this.salary;
+        },
+        verResumen: function () {
+            alert(this.name + "percibe: S/." + this.salary);
+        }
+    };
+
+    var employee3 = {
+        name: "Maria Caceres",
+        age: 40,
+        salary: 5000,
+        CupcakesXSemana: function (aumento) {
+            this.salary += (aumento * 4.50);
+            return this.salary;
+        },
+        verResumen: function () {
+            alert(this.name + "percibe: S/." + (this.salary));
+        }
+    };
+
+    (function () {
+        alert("Primer Objecto" + employee1.name);
+        employee3.CupcakesXSemana(50);
+        employee3.verResumen();
+    })();
+</script>
+
+</body>
+</html>

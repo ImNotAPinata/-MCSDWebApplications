@@ -1,0 +1,5 @@
+c:\users\administrator.nh\documents\visual studio 2012\Projects\CT20480\CT20480\bin\CT20480.dll
+c:\users\administrator.nh\documents\visual studio 2012\Projects\CT20480\CT20480\bin\CT20480.pdb
+c:\users\administrator.nh\documents\visual studio 2012\Projects\CT20480\CT20480\obj\Debug\CT20480.csprojResolveAssemblyReference.cache
+c:\users\administrator.nh\documents\visual studio 2012\Projects\CT20480\CT20480\obj\Debug\CT20480.dll
+c:\users\administrator.nh\documents\visual studio 2012\Projects\CT20480\CT20480\obj\Debug\CT20480.pdb

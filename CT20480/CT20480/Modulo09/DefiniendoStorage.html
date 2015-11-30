@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function AlmacenarDatos() {
+            var valor = document.getElementById("txtValor").value;
+            localStorage.miDatoLocal = valor;
+            sessionStorage.miDato = valor;
+        };
+    </script>
+    <div>
+        <input type="text" id="txtValor" />
+        <button id="btnAlmacenar" onclick="AlmacenarDatos()">
+            Almacenar Datos
+        </button>
+        <a href="ConsumiendoStorage.html">Mostrar Datos</a>
+    </div>
+
+</body>
+</html>

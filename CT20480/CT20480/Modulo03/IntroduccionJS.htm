@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function procesar() {
+//          var cadena = document.getElementById("txtValor").value;
+            //            alert(cadena);
+            var tit = document.getElementById("titulo");
+            tit.addEventListener("mouseover", function myfunction() {
+                alert("Este es el titulo");
+            });
+        }
+        function repetir() {
+            var limite = document.getElementById("txtValor").value;
+            var list = document.getElementById("lista");
+
+            for (var i = 0; i < limite; i++) {
+                var newItem = document.createElement("li");
+                newItem.textContent = "Element No" + i;
+                lista.appendChild(newItem);
+            }
+        }
+        function borrar() {
+            
+            while(lista.hasChildNodes())
+            {
+                lista.removeChild(lista.lastChild);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                Valor de Test
+            </td>
+            <td>
+                <input type="text" id="txtValor"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" id="btnProcesar" value="Procesar" onclick="procesar()" />
+            </td>
+        </tr>
+        <tr> 
+            <td>
+                <input type="button" id="btnRepetir" value="Repetir" onclick="repetir()" />
+            </td>
+        </tr>
+        <tr> 
+            <td>
+                <input type="button" id="btnBorrar" value="Borrar" onclick="borrar()" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul id="lista"></ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h1 id="titulo"> TITULO PRINCIPAL</h1>
+            </td>
+        </tr>
+
+    </table>
+
+</body>
+</html>

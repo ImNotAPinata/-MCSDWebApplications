@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    
+    <div>
+
+        <script>
+            function Localizacion() {
+                d = document.getElementById("demo");
+                if (navigator.geolocation) {
+                    d.innerHTML = "<p>Soporta Geolocalizacion</p>";
+
+                    //Capturando la Geoposicion
+                    navigator.geolocation.getCurrentPosition(
+                        MostrarPosicion,   // Lee los datos
+                        MostrarError,      // Capturar el error
+                        {
+                            enableHighAccuracy: true,      // Exactitud
+                            timeout: 5000                  // Tiempo de espera
+                        });
+                }
+                else {
+                    d.innerHTML = "<p>No Soporta Geolocalizacion</p>";
+                }
+            }
+
+            function MostrarPosicion(position) {
+                latitud = position.coords.latitude;
+                longitud = position.coords.longitude;
+                d.innerHTML +=
+                    "<h2>Latitud: " + latitud + "</h2>";
+                d.innerHTML +=
+                    "<h2>Longitud: " + longitud + "</h2>";
+
+                var latlon = latitud + "," + longitud;
+
+                var imgurl = "http://maps.googleapis.com/maps/api/staticmap?center="
+                + latlon
+                + "&zoom=18&size=420x380&sensor=false";
+
+                d.innerHTML +=
+                    "<img src='" + imgurl + "'>";
+            }
+
+            function MostrarError(error) {
+                switch (error.code) {
+                    case error.PERMISSION_DENIED: break;
+                    case error.POSITION_UNAVAILABLE: break;
+                    case error.TIMEOUT: break;
+                    case error.UNKNOWN_ERROR: break;
+                    default:
+
+                }
+                alert("No se pudo determinar la geolocalizacion...");
+            }
+        </script>
+        <button onclick="Localizacion()">Capturar Localizacion</button>
+        <br />
+        <div id="demo"></div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #contenedorPrincipal {
+            width : 80%;
+            height : 200px;
+        }
+        #contenedorIzquierda {
+            width: 50%;
+            height: 200px;
+            background-color:beige;
+            float: left;
+            overflow: auto;
+        }
+        #contenedorDerecha {
+            width: 50%;
+            height: 200px;
+            background-color:aquamarine;
+            float: right;
+            overflow: auto;
+        }
+    </style>
+    <script type="text/javascript">
+        function evdragstar(ev) {
+            ev.dataTransfer.setData("text",ev.target.id);
+        }
+        function evdragover(ev) {
+            ev.preventDefault();
+        }
+        function evedrop(ev,el) {
+            ev.stopPropagation();
+            ev.preventDefault();
+            data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<body>
+    <div id="contenedorPrincipal">
+        <div id="contenedorIzquierda" ondragover="evdragover(event)" ondrop="evedrop(event)">
+            <p id="e1" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)">
+                Elemento arrastrable
+            </p>
+            <h3 id="e2" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)">
+                Otro Elemento arrastrable
+            </h3>
+            <ul id="e3" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)">
+                <li>Primer Valor</li>
+                <li>Segundo Valor</li>
+            </ul>
+        </div>
+        <div id="contenedorDerecha" ondragover="evdragover(event)" ondrop="evedrop(event)">
+            <img src="Images/espana.gif" id="e4" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)"/>
+            <img src="Images/europa.gif" id="e5" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)"/>
+            <img src="Images/italia.gif" id="e6" draggable="true" ondragstart="evdragstar(event)" ondrop="evedrop(event)"/>
+        </div>
+    </div>
+</body>
+</html>

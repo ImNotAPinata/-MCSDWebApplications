@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var employee1 = {
+            name: "Carlos Vela",
+            age: 35,
+            salary: 5500
+        };
+
+        var employee1 = function (name, age, salary) {
+            this.name = name;
+            this.age = age;
+            this.salary = salary;
+        };
+
+        (function () {
+            var obj = new employee1("Peter", 21, 5000);
+            alert(obj.name);
+        })();
+    </script>
+</body>
+</html>

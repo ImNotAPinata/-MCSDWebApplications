@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        var Person = function (name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+            haveBirthday: function () {
+                this.age++;
+            }
+        };
+
+        //Constructor Derivado
+        var student = function (name, age, subject) {
+            this.name = name;
+            this.age = age;
+            this.subject = subject;
+        };
+
+        //Aplicando el prototipado
+        student.prototype = new Person();
+        //Confirmando el Constructor del objeto derivado
+        student.prototype.constructor = student;
+
+        var aStudent = new student("Carlos", 35, "Apertura");
+        aStudent.subject = "Apertura II";
+        aStudent.haveBirthday();
+        alert(aStudent.age);
+        
+        
+
+    </script>
+
+</body>
+</html>

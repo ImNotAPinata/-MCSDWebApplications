@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #pooltable {
+            width:340px;
+            height:200px;
+            border-radius:5px;
+            background-color:green;
+        }
+        #pooltable.animate {
+            background-color:lightgreen;
+        }
+        #ball {
+            width:40px;
+            height:40px;
+            border-radius:20px;
+            background:white;
+            position:relative;
+            left:0px;
+            top:0px;
+        }
+
+        @-ms-keyframes ballmovement {
+            0% {
+                left:0px;
+                top:0px;
+                background-color:white;
+            }
+            33% {
+                left:100px;
+                top:160px;
+                background-color:red;
+            }
+            66% {
+                left:200px;
+                top:0px;
+                background-color:orange;
+            }
+            100% {
+                left:300px;
+                top:160px;
+                background-color:black;
+            }
+        }
+
+        #ball.animate {
+            -ms-animation-name: ballmovement;
+            -ms-animation-duration: 10s;
+            -ms-animation-delay: 2s;
+            -ms-animation-timing-function: linear;
+            -ms-animation-iteration-count: 2;
+            -ms-animation-direction: alternate;
+        }
+    </style>
+    <script type="text/javascript">
+        function Iniciar() {
+            ball = document.getElementById("ball");
+            boton = document.getElementById("button");
+            boton.disabled = true;
+            ball.classList.add("animate");
+            pooltable.classList.add("animate");
+        }
+    </script>
+</head>
+<body>
+<div id="pooltable">
+    <div id="ball"></div>
+</div>
+    <button id="button" onclick="Iniciar()">Inicar Juego</button>
+</body>
+</html>

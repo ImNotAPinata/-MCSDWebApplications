@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="file" id="txtArchivoBinario" onchange="CargarArchivoBinario()" />
+    <img id="areaImagen" ></img>
+
+    <script type="text/javascript">
+
+        function CargarArchivoBinario() {
+
+            var archivo = document.getElementById("txtArchivoBinario");
+
+            if (archivo.files.length != 0 &&
+                archivo.files[0].type.match(/image.*/)) {
+
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var imagen = document.getElementById("areaImagen");
+
+                    imagen.src = e.target.result;
+                };
+
+                reader.onerror = function (error) {
+                    alert("No se pudo cargar el archivo...");
+                };
+
+                reader.readAsDataURL(archivo.files[0]);
+
+            }
+
+        };
+
+    </script>
+
+</body>
+</html>

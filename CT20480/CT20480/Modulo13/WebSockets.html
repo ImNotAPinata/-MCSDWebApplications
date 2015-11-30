@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+
+        var mysocket = new WebSocket("wss://echo.websocket.org");
+        mysocket.onopen = function (e) {
+            EscribirMensaje("WebSocket aperturado....");
+        };
+
+        mysocket.onclose = function (e) {
+            EscribirMensaje("WebSocket cerrado....");
+        };
+
+        mysocket.onmessage = function (e) {
+            EscribirMensaje("MensajeRecibido:"+e.data);
+        }
+
+        function Desconectar() {
+            mysocket.close();
+        }
+
+        function EscribirMensaje(texto) {
+            valor = document.getElementById("caja").value;
+            document.getElementById("caja").value = valor+texto+"\n";
+        }
+
+        function EnviarMensaje(texto) {
+            mysocket.send(texto);
+            EscribirMensaje("Mensaje Enviado:" + texto);
+        }
+    </script>
+</head>
+<body>
+    
+    <textarea id="caja" cols="100" rows="20"></textarea>
+    <input type="text" id="mensaje" size="100" />
+    <button onclick="EnviarMensaje(document.getElementById('mensaje').value)">Enviar Mensajes</button>
+    <button onclick="Desconectar()">Desconectar del Servidor</button>
+
+</body>
+</html>

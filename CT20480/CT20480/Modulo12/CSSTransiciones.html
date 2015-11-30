@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        div {
+            width:300px;
+            height:100px;
+            background-color:yellow;
+            transition: width 2s, height 3s, background-color 4s, font-size 3s;
+            transition-delay: 3s;
+        }
+        div:hover {
+            width:600px;
+            height:150px;
+            background-color:orange;
+            font-size:x-large;
+        }
+    </style>
+    <script type="text/javascript">
+        function onLoad() {
+            var elementosDiv = document.querySelectorAll("div");
+
+            for (var i = 0; i < elementosDiv.length; i++) {
+                elementosDiv[i].addEventListener("transitionend",capturarTransicion);
+            }
+        }
+
+        function capturarTransicion(e) {
+            mensajes.add(new Option("Propiedad afectada:"+e.propertyName+"Tiempo de Duracion:"+e.elapsedTime));
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+
+    <div>Primera Seccion</div>
+    <div>Segunda Seccion</div>
+    <div>Tercera Seccion</div>
+    
+    <select id="mensajes"></select>
+
+</body>
+</html>

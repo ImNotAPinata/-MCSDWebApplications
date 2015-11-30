@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="file" id="txtArchivoTexto" onchange="CargarArchivoTexto()"/>
+    <textarea id="areaResultados" 
+              rows="30" cols="40"></textarea>
+
+    <script type="text/javascript">
+
+        function CargarArchivoTexto() {
+            var archivo = document.getElementById("txtArchivoTexto");
+            if (archivo.files.length != 0 && archivo.files[0].type.match(/text.*/)) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var area = document.getElementById("areaResultados")
+                    area.value = e.target.result;
+                };
+
+                reader.onerror = function (error) {
+                    alert("No se puede cargar el archivo...");
+                };
+
+                reader.readAsText(archivo.files[0]);
+
+            }
+
+        }
+
+
+    </script>
+
+</body>
+</html>

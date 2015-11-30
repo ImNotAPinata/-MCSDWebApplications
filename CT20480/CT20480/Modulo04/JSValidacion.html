@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function verificarNumero(texto) {
+            var erBase = /[0-9]{1,}/;
+            return String(texto).search(erBase) != -1;
+        }
+
+        function ValidarFormulario() {
+            var textbox = document.getElementById("ndocumento").value;
+            if (verificarNumero(textbox))
+            {
+                alert("se va a enviar y fallar");
+                return true;
+            }
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <form action="/" method="post" onsubmit="return ValidarFormulario();">
+        <div>
+            <input id="ndocumento" type="text" />
+        </div>
+        <input type="submit" value="Enviar datos" />
+    </form>
+</body>
+</html>
